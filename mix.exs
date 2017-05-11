@@ -28,14 +28,19 @@ defmodule BallotBox.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.3.0-rc"},
-     {:phoenix_pubsub, "~> 1.0"},
+    [
+     {:cowboy, "~> 1.0"},
+     {:credo, "~> 0.7.4"},
+     {:gettext, "~> 0.11"},
+     {:phoenix, "~> 1.3.0-rc"},
      {:phoenix_ecto, "~> 3.2"},
-     {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"}]
+     {:phoenix_pubsub, "~> 1.0"},
+     {:postgrex, ">= 0.0.0"},
+     {:ueberauth, "~> 0.4.0"},
+     {:ueberauth_github, "~> 0.4.1"}
+    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
@@ -47,7 +52,7 @@ defmodule BallotBox.Mixfile do
   defp aliases do
     ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
      "ecto.reset": ["ecto.drop", "ecto.setup"],
-     "test": ["ecto.create --quiet", "ecto.migrate", "test"],
+     "test": ["ecto.create --quiet", "ecto.migrate", "test", "credo"],
      "compile": ["compile --warnings-as-errors"]]
   end
 end

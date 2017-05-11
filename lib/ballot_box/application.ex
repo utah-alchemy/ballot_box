@@ -1,4 +1,8 @@
 defmodule BallotBox.Application do
+  @moduledoc """
+    A place to vote for things to discuss at our get-together/usergroup
+
+  """
   use Application
 
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
