@@ -22,6 +22,7 @@ defmodule BallotBox.Web do
       import Plug.Conn
       import BallotBox.Web.Router.Helpers
       import BallotBox.Web.Gettext
+      alias BallotBox.Accounts
     end
   end
 
