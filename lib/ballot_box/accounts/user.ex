@@ -8,6 +8,8 @@ defmodule BallotBox.Accounts.User do
     field :provider, :string
     field :uid, :string
 
+    has_many :topics, BallotBox.Suggestion.Topic, foreign_key: :owner_id
+
     timestamps()
   end
 end
