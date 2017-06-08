@@ -103,6 +103,14 @@ defmodule BallotBox.Suggestion do
     topic_changeset(topic, %{})
   end
 
+  def upvote_topic(%Topic{} = topic, %User{} = user) do
+    topic
+    |> Repo.preload(:votes)
+    |> Ecto.Changeset.change
+    |> Ecto.Changeset.put_assoc(:votes, [user])
+    |> Repo.update()
+  end
+
   defp topic_changeset(%Topic{} = topic, attrs) do
     topic
     |> cast(attrs, [:title, :description])

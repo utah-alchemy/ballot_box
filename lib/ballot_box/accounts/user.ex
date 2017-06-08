@@ -9,6 +9,7 @@ defmodule BallotBox.Accounts.User do
     field :uid, :string
 
     has_many :topics, BallotBox.Suggestion.Topic, foreign_key: :owner_id
+    many_to_many :voted_topics, BallotBox.Suggestion.Topic, join_through: "votes"
 
     timestamps()
   end
